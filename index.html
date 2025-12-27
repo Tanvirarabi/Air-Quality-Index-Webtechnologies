@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Index</title>
+  <style>
+   :root {
+  --primary: #2c3e50;
+  --primary-light: #3a516e;
+  --secondary: #aac9dd;
+  --secondary-light: #5dade2;
+  --accent: #110568;
+  --accent-light: #b0abdb;
+  --light: #ecf0f1;
+  --dark: #d6e5f3;
+  --success: #0fd361;
+  --warning: #f39c12;
+  --danger: #e4210b;
+  --form-bg: #083958;
+  --info-bg: #1159c4;
+  --login-bg: #3431d7;
+  --radius: 0.5rem;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(30deg);
+}
+
+.header:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: var(--shadow-hover);
+}
+
+.circle {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+background-color: rgb(28, 3, 3);
+background-image: url('https://example.com/aqi-image.png'); /*AQI image*/
+background-size: cover;
+background-position: center;
+border: 3px solid white;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+transition: var(--transition);
+position: relative;
+z-index: 1;
+}
+
+.circle:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.header p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.header p::after {
+  content: '\f0e7'; /* Lightning bolt icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  margin-left: 0.5rem;
+  color: var(--accent);
+}
+
+/* Main Content Layout */
+.content-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .content-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Form Container Styles */
+.form-container {
+  background-color: var(--form-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: white;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-0.25rem);
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-container h2::before {
+  content: '\f007'; /* User icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.form-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+label::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.8em;
+}
+
+label[for="fname"]::before { content: '\f2bb'; } /* ID card icon */
+label[for="lname"]::before { content: '\f2bb'; }
+label[for="email"]::before { content: '\f0e0'; } /* Envelope icon */
+label[for="pwd"]::before { content: '\f023'; } /* Lock icon */
+label[for="cpwd"]::before { content: '\f023'; }
+label[for="birthday"]::before { content: '\f073'; } /* Calendar icon */
+label[for="countryInput"]::before { content: '\f0ac'; } /* Globe icon */
+label[for="Gender"]::before { content: '\f183'; } /* Gender icon */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[list] {
+  padding: 0.75rem 0.75rem 0.75rem 2rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  outline: none;
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.inline-group {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: var(--transition);
+  position: relative;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"]:checked {
+  background-color: var(--primary);
+  border-color: white;
+}
+
+.radio-option input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.6em;
+  height: 0.6em;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.terms-box {
+  background-color: rgba(194, 17, 17, 0.1);
+  border-radius: var(--radius);
+  padding: 1rem;
+  max-height: 100px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.terms-agree {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.terms-agree input[type="checkbox"] {
+  appearance: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid white;
+  border-radius: 0.25em;
+  transition: var(--transition);
+  position: relative;
+  cursor: pointer;
+}
+
+.terms-agree input[type="checkbox"]:checked {
+  background-color: var(--primary);
+  border-color: white;
+}
+
+.terms-agree input[type="checkbox"]:checked::after {
+  content: '\f00c'; /* Check icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.8em;
+}
+
+input[type="submit"] {
+  padding: 0.85rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+input[type="submit"]::before {
+  content: '\f058'; /* Check circle icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Login Form Specific */
+.form-container[style*="background-color:#d2a6da"] {
+  background-color: var(--login-bg) !important;
+  margin-top: 1.5rem;
+}
+
+.form-container[style*="background-color:#d2a6da"] h2::before {
+  content: '\f2f6'; /* Sign-in icon */
+}
+
+/* Right Box - AQI Info */
+.right-box {
+  background-color: var(--info-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: white;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.right-box:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: var(--shadow-hover);
+}
+
+.right-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, 
+    #00e400 0% 16.66%, 
+    #ffff00 16.66% 33.33%, 
+    #ff7e00 33.33% 50%, 
+    #ff0000 50% 66.66%, 
+    #8f3f97 66.66% 83.33%, 
+    #7e0023 83.33% 100%);
+}
+
+.aqi-info-container h2 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.aqi-info-container h2::before {
+  content: '\f769'; /* Cloud sun rain icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.aqi-info-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.aqi-info-container p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.aqi-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.aqi-table th {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  text-align: left;
+  padding: 1rem;
+  position: relative;
+  font-weight: 600;
+}
+
+.aqi-table th::after {
+  content: '\f0d7'; /* Chevron down icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 1rem;
+  opacity: 0.7;
+}
+
+.aqi-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  vertical-align: top;
+}
+
+.aqi-table tr:last-child td {
+  border-bottom: none;
+}
+
+.aqi-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+/* AQI Level Colors */
+.aqi-table .good {
+  background: rgba(0, 228, 0, 0.08);
+}
+
+.aqi-table .moderate {
+  background: rgba(255, 255, 0, 0.08);
+}
+
+.aqi-table .unhealthy-sensitive {
+  background: rgba(255, 126, 0, 0.08);
+}
+
+.aqi-table .unhealthy {
+  background: rgba(255, 0, 0, 0.08);
+}
+
+.aqi-table .very-unhealthy {
+  background: rgba(143, 63, 151, 0.08);
+}
+
+.aqi-table .hazardous {
+  background: rgba(126, 0, 35, 0.08);
+}
+
+/* Pollutant List Styles */
+.pollutant-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.pollutant-list li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.pollutant-list i {
+  width: 1.25rem;
+  text-align: center;
+  color: var(--secondary-light);
+}
+
+/* Error Styles */
+.error {
+  color: #ffdddd;
+  font-size: 0.85rem;
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error::before {
+  content: '\f06a'; /* Exclamation circle icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.9em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+  
+  .header, 
+  .form-container, 
+  .right-box {
+    padding: 1.5rem;
+  }
+  
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .header p {
+    font-size: 1.25rem;
+  }
+  
+  .inline-group {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[list] {
+    padding-left: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aqi-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .aqi-table th::after {
+    display: none;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRow {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.form-container, 
+.right-box {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.right-box {
+  animation-delay: 0.1s;
+}
+
+.aqi-table tr {
+  animation: fadeInRow 0.3s ease-out forwards;
+}
+
+.aqi-table tr:nth-child(1) { animation-delay: 0.1s; }
+.aqi-table tr:nth-child(2) { animation-delay: 0.2s; }
+.aqi-table tr:nth-child(3) { animation-delay: 0.3s; }
+.aqi-table tr:nth-child(4) { animation-delay: 0.4s; }
+.aqi-table tr:nth-child(5) { animation-delay: 0.5s; }
+.aqi-table tr:nth-child(6) { animation-delay: 0.6s; }
+
+/* Floating action button */
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+  cursor: pointer;
+  z-index: 100;
+}
+
+.fab:hover {
+  background-color: var(--accent-light);
+  transform: translateY(-0.25rem) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.fab::before {
+  content: '\f075'; /* Comment icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="circle"></div>
+      <p style="margin-top: 10px; font-size: 18px; font-weight: bold;">Air Quality Index</p>
+    </div>
+
+    <!-- Main content -->
+    <div class="content-box">
+      <!-- Left: Form -->
+      <style> 
+        .error {
+          color: red;
+          font-size: 0.9em;
+        }
+      </style>
+      <div class="form-container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm" action="process.php" method="POST">
+          <label for="fname">First name:</label>
+          <input type="text" id="fname" name="fname" />
+          <span class="error" id="fnameError"></span>
+
+          <label for="lname">Last name:</label>
+          <input type="text" id="lname" name="lname" />
+          <span class="error" id="lnameError"></span>
+
+          <label for="email">Email (This is your user):</label>
+          <input type="email" id="email" name="email" />
+          <span class="error" id="emailError"></span>
+
+          <label for="pwd">Password:</label>
+          <input type="password" id="pwd" name="pwd" />
+          <span class="error" id="pwdError"></span>
+
+          <label for="cpwd">Confirm Password:</label>
+          <input type="password" id="cpwd" name="cpwd" />
+          <span class="error" id="cpwdError"></span>
+
+          <label for="birthday">Date of birth:</label>
+          <input type="date" id="birthday" name="birthday" />
+          <span class="error" id="birthdayError"></span>
+
+          <label for="countryInput">Select your country:</label>
+          <input list="country" id="countryInput" name="countryInput" />
+          <datalist id="country">
+            <option value="Canada"></option>
+            <option value="Finland"></option>
+            <option value="Japan"></option>
+            <option value="Singapore"></option>
+            <option value="Thailand"></option>
+          </datalist>
+          <span class="error" id="countryError"></span>
+
+          <label for="Gender">Select your Gender:</label>
+          <div class="inline-group">
+            <input type="radio" id="male" name="Gender" value="male" />
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="Gender" value="female" />
+            <label for="female">Female</label>
+          </div>
+          <span class="error" id="genderError"></span>
+
+          <label>Choose your favorite color:  
+            <input type="color" id="favcolor" name="favcolor" value="#ff0000" />
+          </label>
+
+          <h3>Terms and Conditions</h3>
+          <div class="terms-box">
+            By registering, you acknowledge that your personal information will be securely stored and will not be disclosed to any third parties. You confirm that you are 18 years of age or older. You are responsible for providing accurate and complete information. Any misuse of the system or breach of the rules may lead to immediate suspension or termination of your account.
+          </div>
+          By
+          <div class="terms-agree">
+            <input type="checkbox" id="tc" name="tc" value="tc" />
+            <label for="tc">I agree to the terms and conditions:)</label>
+            <span class="error" id="tcError"></span>
+          </div>
+
+          <input type="submit" value="Submit" action="process.php" method="POST" />
+        </form>
+        
+        <!--sign in form-->
+        <div class="form-container" style="background-color:#2812b5; padding-top:20px; color:#000;">
+          <form action="login.php" method="POST">
+            <h2>Login In Form</h2>
+            <label for="username">Email:</label>
+            <input type="text" id="username" name="username" required />
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+            <input type="submit" value="Log In" />
+          </form>
+        </div>
+
+        <script>
+          document.getElementById("registrationForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            document.querySelectorAll(".error").forEach(el => el.textContent = "");
+            let isValid = true;
+
+            const fname = document.getElementById("fname").value.trim();
+            const lname = document.getElementById("lname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const pwd = document.getElementById("pwd").value;
+            const cpwd = document.getElementById("cpwd").value;
+            const dob = document.getElementById("birthday").value;
+            const country = document.getElementById("countryInput").value.trim();
+            const gender = document.querySelector("input[name='Gender']:checked");
+            const tc = document.getElementById("tc").checked;
+
+            if (!fname) {
+              document.getElementById("fnameError").textContent = "First name is required";
+              isValid = false;
+            }
+            if (!lname) {
+              document.getElementById("lnameError").textContent = "Last name is required";
+              isValid = false;
+            }
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailPattern.test(email)) {
+              document.getElementById("emailError").textContent = "Enter a valid email";
+              isValid = false;
+            }
+            if (pwd.length < 6) {
+              document.getElementById("pwdError").textContent = "Password must be at least 6 characters";
+              isValid = false;
+            } else if (pwd !== cpwd) {
+              document.getElementById("cpwdError").textContent = "Passwords do not match";
+              isValid = false;
+            }
+
+            if (!dob) {
+              document.getElementById("birthdayError").textContent = "Date of birth is required";
+              isValid = false;
+            } else {
+              const today = new Date();
+              const birthDate = new Date(dob);
+              let age = today.getFullYear() - birthDate.getFullYear();
+              const m = today.getMonth() - birthDate.getMonth();
+              if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+              }
+              if (age < 18) {
+                document.getElementById("birthdayError").textContent = "You must be at least 18 years old!";
+                isValid = false;
+              }
+            }
+
+            if (!country) {
+              document.getElementById("countryError").textContent = "Please select a country";
+              isValid = false;
+            }
+
+            if (!gender) {
+              document.getElementById("genderError").textContent = "Please select your gender";
+              isValid = false;
+            }
+
+            if (!tc) {
+              document.getElementById("tcError").textContent = "You must agree to the terms";
+              isValid = false;
+            }
+
+            if (isValid) {
+              document.getElementById("registrationForm").submit();
+            }
+          });
+        </script>
+      </div>
+      
+      <!-- Right Box -->
+      <div class="right-box">
+        <div class="aqi-info-container">
+          <h2>Air Quality Index (AQI) Information</h2>
+          <p>The Air Quality Index is a tool used to communicate how polluted the air currently is or how polluted it is forecast to become. Check the table below to understand different AQI levels and their health implications.</p>
+          
+          <table class="aqi-table">
+            <thead>
+              <tr>
+                <th>AQI Range</th>
+                <th>Level of Health Concern</th>
+                <th>Health Effects</th>
+                <th>Precautionary Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="good">
+                <td>0 - 50</td>
+                <td>Good</td>
+                <td>Air quality is satisfactory, and air pollution poses little or no risk</td>
+                <td>None required</td>
+              </tr>
+              <tr class="moderate">
+                <td>51 - 100</td>
+                <td>Moderate</td>
+                <td>Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people</td>
+                <td>Unusually sensitive people should consider reducing prolonged or heavy exertion</td>
+              </tr>
+              <tr class="unhealthy-sensitive">
+                <td>101 - 150</td>
+                <td>Unhealthy for Sensitive Groups</td>
+                <td>Members of sensitive groups may experience health effects. The general public is not likely to be affected</td>
+                <td>Children, active adults, and people with respiratory disease should reduce prolonged or heavy exertion</td>
+              </tr>
+              <tr class="unhealthy">
+                <td>151 - 200</td>
+                <td>Unhealthy</td>
+                <td>Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects</td>
+                <td>Children, active adults, and people with respiratory disease should avoid prolonged or heavy exertion; everyone else should reduce prolonged or heavy exertion</td>
+              </tr>
+              <tr class="very-unhealthy">
+                <td>201 - 300</td>
+                <td>Very Unhealthy</td>
+                <td>Health warnings of emergency conditions. The entire population is more likely to be affected</td>
+                <td>Children, active adults, and people with respiratory disease should avoid all outdoor exertion; everyone else should avoid prolonged or heavy exertion</td>
+              </tr>
+              <tr class="hazardous">
+                <td>301 - 500</td>
+                <td>Hazardous</td>
+                <td>Health alert: everyone may experience more serious health effects</td>
+                <td>Everyone should avoid all physical activity outdoors</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style="margin-top: 20px;">
+            <h3>Common Air Pollutants:</h3>
+            <ul class="pollutant-list">
+              <li><i class="fas fa-smog"></i> <strong>PM2.5/PM10:</strong> Fine particulate matter from vehicles, industry, and fires</li>
+              <li><i class="fas fa-fire"></i> <strong>Ozone (O₃):</strong> Ground-level ozone from vehicle and industrial emissions</li>
+              <li><i class="fas fa-industry"></i> <strong>Nitrogen Dioxide (NO₂):</strong> From burning fossil fuels</li>
+              <li><i class="fas fa-car"></i> <strong>Sulfur Dioxide (SO₂):</strong> From industrial processes</li>
+              <li><i class="fas fa-gas-pump"></i> <strong>Carbon Monoxide (CO):</strong> From incomplete combustion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Floating action button -->
+  <div class="fab"></div>
+</body>
+</html>
